@@ -1,0 +1,108 @@
+/* Для всей страницы */
+body {
+    font-family: 'Courier New', monospace; 
+    margin: 0; /* чтобы не было отступов между элементом и границей экрана */
+    padding: 0; /* чтобы не было отступов внутри элемента и его границы */
+    background-color: #FFE6E6; /*дефолт цвет бгда */
+    color: #433878; /*дефолт цвет для всего текста */
+}
+
+/* Для заглавления */
+header {
+    background-image: url('bg.jpg');
+    background-size: cover; /* чтобы форматировался под форму хедера*/
+    background-position: center; 
+    color: rgb(255, 255, 255); /*меняем цвет текста с дефолтного на желаемый*/
+    padding: 20px; 
+    text-align: center;
+}
+
+header h1 {
+    margin: 0; /* добавляем марджин чтобы убрать дефолтные отступы для заголовков*/
+    font-size: 2.5em;
+}
+
+header p {
+    font-size: 1.2em;
+}
+
+/* Хобби и факты */
+.hobbies-facts { /* работа с классами*/
+    display: flex; /* расположение в строку*/
+    justify-content: space-between;  
+    margin: 20px 0; /* отступ сверху и снизу */
+}
+
+.hobbies, .facts { /* работа с классами*/
+    flex: 1; /*одинаковый размер в ширину*/
+    margin: 0 10px; /* горизонтальные отступы */
+}
+
+/* Таблицы */
+table {
+    width: 100%; /* таблица занимает 100% ширины контейнера */
+    border-collapse: collapse; /* Убирает двойные границы */
+    margin-top: 20px; 
+}
+
+/* th = table header, td = table data */
+th, td {
+    border: 1px solid #ddd; 
+    padding: 10px; 
+    text-align: left; 
+}
+
+th {
+    background-color: #F7B5CA;
+    color: white; /*цвет текста*/
+}
+
+/* Секции */
+section {
+    padding: 20px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: #F7B5CA;
+    font-size: 2em;
+}
+
+/* Хобби */
+ul {
+    list-style-type: none; /*убирает точки для листа*/
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+ul li img {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+/* Footer */
+footer {
+    background-color: #F7B5CA;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+footer a {
+    color: #433878;
+    text-decoration: none; /* убирает подчеркивание у ссылок */
+}
+
+footer a:hover {
+    text-decoration: underline; /* подчеркивание ссылок при наведении */
+}
+

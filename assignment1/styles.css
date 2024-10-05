@@ -27,12 +27,13 @@ header p {
 }
 
 /* Хобби и факты */
+/* работа в целом */
 .hobbies-facts { /* работа с классами*/
     display: flex; /* расположение в строку*/
     justify-content: space-between;  
     margin: 20px 0; /* отступ сверху и снизу */
 }
-
+/* работа с элементами внутри */
 .hobbies, .facts { /* работа с классами*/
     flex: 1; /*одинаковый размер в ширину*/
     margin: 0 10px; /* горизонтальные отступы */
@@ -41,7 +42,6 @@ header p {
 /* Таблицы */
 table {
     width: 100%; /* таблица занимает 100% ширины контейнера */
-    border-collapse: collapse; /* Убирает двойные границы */
     margin-top: 20px; 
 }
 
@@ -57,13 +57,13 @@ th {
     color: white; /*цвет текста*/
 }
 
-/* Секции */
+/* секции чтобы отделялись от бг */
 section {
     padding: 20px;
     margin: 10px;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+ 
 }
 
 section h2 {
@@ -72,11 +72,12 @@ section h2 {
 }
 
 /* Хобби */
+/* анордеред лист */
 ul {
     list-style-type: none; /*убирает точки для листа*/
     padding: 0;
 }
-
+/* то что в листе */
 ul li {
     margin: 10px 0;
     font-size: 1.2em;
@@ -99,10 +100,4 @@ footer {
 
 footer a {
     color: #433878;
-    text-decoration: none; /* убирает подчеркивание у ссылок */
 }
-
-footer a:hover {
-    text-decoration: underline; /* подчеркивание ссылок при наведении */
-}
-

@@ -1,0 +1,123 @@
+/* Для всей страницы */
+body {
+    font-family: 'Courier New', monospace; 
+    margin: 0;
+    padding: 0;
+    background-color: #FFE6E6;
+    color: #433878;
+
+}
+
+header {
+    background-image: url('bg.jpg');
+    background-size: cover; /* чтобы форматировался под форму хедера*/
+    background-position: center; 
+    color: rgb(255, 255, 255); /*меняем цвет текста с дефолтного на желаемый*/
+    padding: 20px; 
+    text-align: center;
+}
+
+header h1 {
+    margin: 0; /* добавляем марджин чтобы убрать дефолтные отступы для заголовков*/
+    font-size: 2.5em;
+}
+
+header p {
+    font-size: 1.2em;
+}
+
+.hobbies-facts {
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px; 
+    margin: 20px 0;
+}
+.hobbies, .facts {
+    background-color: white; 
+    padding: 20px;
+    border-radius: 8px;
+  
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; 
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #F7B5CA;
+    color: white;
+}
+section {
+    padding: 20px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 8px;
+
+}
+section h2 {
+    color: #F7B5CA;
+    font-size: 2em;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+ul li img {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+ul li img:hover {
+    transform: scale(1.2);
+}
+footer {
+    background-color: #F7B5CA;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 100%; /* Ширина футера на 100% экрана */
+}
+footer a {
+    padding: 10px 20px; 
+    background-color: #433878; 
+    color: white; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    font-size: 1em; 
+    margin: 5px; 
+}
+
+footer a:hover {
+    background-color: #FF3EA5; 
+    color: #433878; 
+    transform: scale(1.1); 
+}
+
+@media only screen and (max-width: 768px) {
+    .hobbies-facts {
+        display: flex;
+        flex-direction: column;
+        margin: 20px 0;
+    }
+
+    .hobbies, .facts {
+        flex: none;
+        margin: 10px 0;
+        grid-template-columns: 1fr; 
+    }
+    
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Simple Music Player</title>
+</head>
+<body>
+    <div id="player">
+        <img id="player-song-image" src="spotik.jpg" alt="Song Image" width="100" height="100">
+        <div id="player-info">
+            <h2 id="player-song-title">No song selected</h2>
+            <h3 id="player-song-artist">Unknown artist</h3>
+        </div>
+        <div id="player-controls">
+            <button id="play-pause" aria-label="Play">Play</button>
+            <button id="next" aria-label="Next">Next</button>
+        </div>
+    </div>
+
+    <ul id="playlist-songs"></ul>
+
+    <script>
+ 
+        const tracks = [
+            { id: 1, title: "Telephone", artist: "Lady Gaga", url: "telephone.mp3", cover: "telephone.jpeg" },
+            { id: 2, title: "Beautiful Liars", artist: "Shakira", url: "beautifulliars.mp3", cover: "beautifulliars.png" },
+            { id: 3, title: "Bodyguard", artist: "Beyonce", url: "bodyguard.mp3", cover: "bodyguard.jpeg" },
+            { id: 4, title: "Naughty Girl", artist: "Beyonce", url: "naughtygirl.mp3", cover: "naughtygirl.jpeg" },
+        ];
+
+        const playPauseButton = document.getElementById("play-pause");
+        const nextButton = document.getElementById("next");
+        const playlistSongs = document.getElementById("playlist-songs");
+        const audio = new Audio();
+
+        let userData = {
+            songs: tracks,
+            currentSong: null,
+        };
+
+        const playSong = (id) => {
+            const song = userData.songs.find((song) => song.id === id);
+            if (!song) return;
+
+            audio.src = song.url;
+            audio.title = song.title;
+
+            if (userData.currentSong === null || userData.currentSong.id !== song.id) {
+                audio.currentTime = 0;
+            }
+
+            userData.currentSong = song;
+            updatePlayerDisplay();
+            audio.play();
+            playPauseButton.textContent = "Pause";
+        };
+
+        const playNextSong = () => {
+            const currentSongIndex = userData.songs.indexOf(userData.currentSong);
+            const nextSong = userData.songs[currentSongIndex + 1] || userData.songs[0];
+            playSong(nextSong.id);
+        };
+
+        const updatePlayerDisplay = () => {
+            const songTitle = document.getElementById("player-song-title");
+            const songArtist = document.getElementById("player-song-artist");
+            const songImage = document.getElementById("player-song-image");
+
+            songTitle.textContent = userData.currentSong?.title || "No song selected";
+            songArtist.textContent = userData.currentSong?.artist || "Unknown artist";
+            songImage.src = userData.currentSong?.cover || "spotik.jpg";
+        };
+
+        const renderSongs = (songs) => {
+            const songsHTML = songs
+                .map((song) => `
+                    <li id="song-${song.id}">
+                        <button onclick="playSong(${song.id})">
+                            ${song.title} - ${song.artist}
+                        </button>
+                    </li>
+                `)
+                .join("");
+
+            playlistSongs.innerHTML = songsHTML;
+        };
+
+        playPauseButton.addEventListener("click", () => {
+            if (audio.paused) {
+                if (userData.currentSong === null) {
+                    playSong(userData.songs[0].id);
+                } else {
+                    audio.play();
+                    playPauseButton.textContent = "Pause";
+                }
+            } else {
+                audio.pause();
+                playPauseButton.textContent = "Play";
+            }
+        });
+
+        nextButton.addEventListener("click", playNextSong);
+        audio.addEventListener("ended", playNextSong);
+
+        renderSongs(userData.songs);
+        updatePlayerDisplay();
+    </script>
+</body>
+</html>
